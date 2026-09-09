@@ -1,0 +1,9 @@
+{
+  "name": "aurea-dental-showcase",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "http-server . -p 4173 -c-1",
+    "check": "node --check app.js"
+  }
+}
