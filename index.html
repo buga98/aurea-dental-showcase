@@ -1,204 +1,165 @@
 <!doctype html>
 <html lang="hr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f2f0e8" />
-  <meta name="description" content="AUREA DENTAL — cinematic dental showcase." />
-  <title>AUREA DENTAL — Beyond the smile.</title>
+  <meta name="theme-color" content="#090806" />
+  <meta name="description" content="AUREA DENTAL — cinematic showcase studija dentalne medicine." />
+  <title>AUREA DENTAL — Beyond the smile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="cursor-orb" aria-hidden="true"></div>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
-  <header class="nav">
-    <a class="nav-brand" href="#top" aria-label="Aurea Dental početna">
-      <span class="nav-symbol">A</span>
-      <span><b>AUREA</b><small>DENTAL STUDIO</small></span>
+  <header class="topbar">
+    <a class="logo" href="#top" aria-label="Aurea Dental početna">
+      <span class="logo-disc">A</span>
+      <span><strong>AUREA</strong><small>DENTAL STUDIO</small></span>
     </a>
-    <div class="nav-center">ZAGREB · 45°48′N</div>
-    <a class="nav-book" href="#kontakt">BOOK A VISIT <span>↗</span></a>
+    <nav class="nav-desktop">
+      <a href="#treatments">Tretmani</a>
+      <a href="#anatomy">Preciznost</a>
+      <a href="#implant">Implanti</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <a class="book" href="#contact">Rezerviraj termin <span>↗</span></a>
+    <button class="menu-toggle" aria-label="Otvori izbornik"><i></i><i></i></button>
   </header>
 
   <main id="top">
-    <section class="hero" id="hero">
-      <div class="hero-word hero-word-a">AUREA</div>
-      <div class="hero-word hero-word-b">DENTAL</div>
-
-      <div class="hero-meta hero-meta-left">STUDIO DENTALNE MEDICINE<br>EST. 2026</div>
-      <div class="hero-meta hero-meta-right">PRECISION / FUNCTION / FORM</div>
-
-      <div class="hero-tooth-wrap" id="hero-tooth-wrap">
-        <div class="hero-ring ring-one"></div>
-        <div class="hero-ring ring-two"></div>
-        <svg class="hero-tooth" viewBox="0 0 420 540" role="img" aria-label="Stilizirani zub">
-          <defs>
-            <linearGradient id="toothBody" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#ffffff"/>
-              <stop offset=".42" stop-color="#f2eee3"/>
-              <stop offset=".76" stop-color="#d8d3c7"/>
-              <stop offset="1" stop-color="#b9b6ae"/>
-            </linearGradient>
-            <radialGradient id="toothGlow" cx="36%" cy="18%" r="70%">
-              <stop offset="0" stop-color="#ffffff" stop-opacity=".98"/>
-              <stop offset=".44" stop-color="#ffffff" stop-opacity=".18"/>
-              <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="shadow" x="-60%" y="-60%" width="220%" height="240%">
-              <feDropShadow dx="0" dy="36" stdDeviation="28" flood-color="#11120f" flood-opacity=".28"/>
-            </filter>
-          </defs>
-          <g filter="url(#shadow)">
-            <path d="M210 39C139 17 64 50 52 125c-8 50 17 93 34 128 19 39 15 166 67 225 18 20 35-4 41-72 5-58 8-81 16-81s11 23 16 81c6 68 23 92 41 72 52-59 48-186 67-225 17-35 42-78 34-128C356 50 281 17 210 39Z" fill="url(#toothBody)"/>
-            <path d="M80 127c34-74 206-91 260 0-28-38-77-56-130-56S108 89 80 127Z" fill="url(#toothGlow)"/>
-            <path d="M118 107c29-22 61-31 92-31 32 0 65 10 94 33" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".55"/>
-          </g>
-        </svg>
-        <div class="hero-badge">01<br><b>FORM</b></div>
+    <section class="hero panel panel-dark">
+      <div class="hero-media cinematic-media">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="hero-tooth" data-parts="4" alt="Fotorealistični prikaz zuba u luksuznom studijskom osvjetljenju" fetchpriority="high" />
+        <div class="media-vignette"></div>
       </div>
-
-      <div class="hero-copy">
-        <p class="kicker">BEYOND THE SMILE.</p>
-        <h1>WE DON'T FIX<br><em>SMILES.</em></h1>
-        <p class="hero-sub">WE DESIGN THEM.</p>
-      </div>
-
-      <div class="scroll-cue"><span>SCROLL</span><i></i><span>TO EXPLORE</span></div>
-    </section>
-
-    <section class="manifesto">
-      <div class="manifesto-index">02 / PHILOSOPHY</div>
-      <div class="manifesto-line"><span>NOT WHITE.</span><b>RIGHT.</b></div>
-      <div class="manifesto-line alt"><span>NOT PERFECT.</span><b>YOURS.</b></div>
-      <p class="manifesto-note">Dentalna estetika bez generičnog osmijeha. Funkcija, proporcija i karakter — prije svega.</p>
-      <div class="orbit-copy">AUREA · DIGITAL DENTISTRY · AUREA · DIGITAL DENTISTRY ·</div>
-    </section>
-
-    <section class="lineup" id="usluge">
-      <div class="lineup-head">
-        <div>
-          <span class="section-code">03 / THE LINEUP</span>
-          <h2>CHOOSE YOUR<br><em>TRANSFORMATION.</em></h2>
+      <div class="hero-content">
+        <div class="hero-kicker reveal-up">STUDIO DENTALNE MEDICINE · ZAGREB</div>
+        <h1 class="hero-title">
+          <span class="title-line line-a">BEYOND</span>
+          <span class="title-line line-b">THE SMILE.</span>
+        </h1>
+        <div class="hero-bottom reveal-up">
+          <p>Precizna dentalna medicina, oblikovana kao premium iskustvo — od prve snimke do posljednjeg detalja.</p>
+          <a href="#treatments">Istraži studio <span>↓</span></a>
         </div>
-        <p>Tri dentalna smjera. Jedna ideja: rezultat mora izgledati kao da je oduvijek bio vaš.</p>
       </div>
+      <div class="hero-index">01 / 07</div>
+    </section>
 
-      <div class="lineup-viewport">
+    <section class="statement panel panel-ivory">
+      <div class="statement-inner">
+        <p class="eyebrow dark">AUREA PHILOSOPHY</p>
+        <div class="statement-copy">
+          <span>NE RADIMO</span>
+          <span class="ghost-word">SAVRŠENE</span>
+          <span>OSMIJEHE.</span>
+          <span class="statement-accent">RADIMO TVOJE.</span>
+        </div>
+        <p class="statement-note">Prirodna estetika. Stabilna funkcija. Nula generičkog dojma.</p>
+      </div>
+    </section>
+
+    <section class="lineup" id="treatments">
+      <div class="lineup-sticky">
+        <div class="lineup-head">
+          <div><p class="eyebrow">THE LINEUP</p><h2>Četiri scene.<br>Jedna filozofija.</h2></div>
+          <p>Veliki zahvati ne počinju bušilicom. Počinju planom, materijalom i preciznim razumijevanjem rezultata.</p>
+        </div>
         <div class="lineup-track">
-          <article class="treatment-card card-blue">
-            <div class="card-no">01</div>
-            <div class="card-title"><span>IMPLANTS</span><small>REBUILD / PRESERVE / LAST</small></div>
-            <div class="implant-mini" aria-hidden="true">
-              <div class="mini-crown"></div><div class="mini-abutment"></div><div class="mini-screw"></div>
-            </div>
-            <p>Digitalno planirana implantologija s fokusom na tkivo, zagriz i dugoročnu stabilnost.</p>
+          <article class="treatment-card card-implant">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="implant" data-parts="4" alt="Fotorealistični dentalni implant u eksplodiranom prikazu" loading="lazy" />
+            <div class="card-shade"></div><span class="card-no">01</span>
+            <div class="card-copy"><small>IMPLANTOLOGIJA</small><h3>Build from<br>the bone up.</h3><p>Digitalno planiran implant, pozicioniran prema budućem osmijehu.</p></div>
           </article>
-
-          <article class="treatment-card card-ivory">
-            <div class="card-no">02</div>
-            <div class="card-title"><span>VENEERS</span><small>FORM / LIGHT / PROPORTION</small></div>
-            <div class="veneer-stack" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <p>Minimalno invazivna promjena oblika i proporcije, bez umjetnog “copy/paste” osmijeha.</p>
+          <article class="treatment-card card-anatomy">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="exploded-tooth" data-parts="5" alt="Fotorealistični eksplodirani prikaz anatomije zuba" loading="lazy" />
+            <div class="card-shade"></div><span class="card-no">02</span>
+            <div class="card-copy"><small>ENDODONCIJA</small><h3>See what<br>others miss.</h3><p>Preciznost počinje ispod površine.</p></div>
           </article>
-
-          <article class="treatment-card card-black">
-            <div class="card-no">03</div>
-            <div class="card-title"><span>ALIGN</span><small>MOVE / CONTROL / REFINE</small></div>
-            <div class="aligner-mini" aria-hidden="true"><span></span></div>
-            <p>Diskretna ortodoncija i digitalno vođeni pomaci — manje kompromisa, više kontrole.</p>
+          <article class="treatment-card card-aligner">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="aligner" data-parts="5" alt="Fotorealistični prozirni aligner i premium kutijica" loading="lazy" />
+            <div class="card-shade"></div><span class="card-no">03</span>
+            <div class="card-copy"><small>ALIGNERI</small><h3>Move less.<br>Change more.</h3><p>Diskretna ortodoncija s jasnim digitalnim planom.</p></div>
+          </article>
+          <article class="treatment-card card-smile">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="smile" data-parts="3" alt="Fotorealistični prirodni osmijeh" loading="lazy" />
+            <div class="card-shade"></div><span class="card-no">04</span>
+            <div class="card-copy"><small>SMILE DESIGN</small><h3>Natural<br>by design.</h3><p>Estetika koja pripada licu, a ne trendu.</p></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="anatomy" id="anatomy">
-      <div class="anatomy-copy">
-        <span class="section-code light">04 / BENEATH THE SURFACE</span>
-        <h2>PRECISION<br>STARTS<br><em>INSIDE.</em></h2>
-        <p>Ne tretiramo samo ono što se vidi. Svaki sloj ima funkciju, svaki milimetar ima razlog.</p>
+    <section class="anatomy panel panel-dark" id="anatomy">
+      <div class="anatomy-media cinematic-media">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="exploded-tooth" data-parts="5" alt="Detaljni eksplodirani prikaz zuba" loading="lazy" />
+        <div class="media-vignette"></div>
       </div>
-
-      <div class="anatomy-stage">
-        <div class="anatomy-glow"></div>
-        <div class="tooth-layer enamel" data-layer="enamel">
-          <svg viewBox="0 0 360 210"><path d="M30 167C21 91 72 35 180 28c108 7 159 63 150 139-43 18-89 26-150 26S73 185 30 167Z"/></svg>
-        </div>
-        <div class="tooth-layer dentin" data-layer="dentin">
-          <svg viewBox="0 0 330 250"><path d="M40 49c42-30 208-30 250 0 5 79-32 144-49 186-17-30-33-53-76-53s-59 23-76 53C72 193 35 128 40 49Z"/></svg>
-        </div>
-        <div class="tooth-layer pulp" data-layer="pulp">
-          <svg viewBox="0 0 180 280"><path d="M90 12c-33 0-58 26-55 68 2 30 28 59 32 90 3 26-5 76 23 98 28-22 20-72 23-98 4-31 30-60 32-90 3-42-22-68-55-68Z"/></svg>
-        </div>
-        <div class="tooth-layer root" data-layer="root">
-          <svg viewBox="0 0 320 310"><path d="M48 25c18 39 32 83 38 128 9 65 14 135 47 135 25 0 19-85 27-85s2 85 27 85c33 0 38-70 47-135 6-45 20-89 38-128-56 23-168 23-224 0Z"/></svg>
-        </div>
-        <div class="layer-label label-enamel"><b>01</b><span>ENAMEL</span></div>
-        <div class="layer-label label-dentin"><b>02</b><span>DENTIN</span></div>
-        <div class="layer-label label-pulp"><b>03</b><span>PULP</span></div>
-        <div class="layer-label label-root"><b>04</b><span>ROOT</span></div>
+      <div class="anatomy-content">
+        <div class="anatomy-title"><p class="eyebrow">UNDER THE SURFACE</p><h2>PRECISION<br>HAS LAYERS.</h2></div>
+        <div class="anatomy-label label-enamel"><span>01</span><strong>ENAMEL</strong><small>Zaštita · translucencija</small></div>
+        <div class="anatomy-label label-dentin"><span>02</span><strong>DENTIN</strong><small>Struktura · volumen</small></div>
+        <div class="anatomy-label label-pulp"><span>03</span><strong>PULP</strong><small>Živac · cirkulacija</small></div>
+        <div class="anatomy-label label-root"><span>04</span><strong>ROOT</strong><small>Stabilnost · biologija</small></div>
+        <div class="anatomy-foot">Mi ne gledamo samo ono što se vidi.<br><strong>Planiramo ono što mora trajati.</strong></div>
       </div>
     </section>
 
-    <section class="implant" id="implant">
-      <div class="implant-heading">
-        <span class="section-code">05 / ENGINEERED TO DISAPPEAR</span>
-        <h2>THE<br><em>IMPLANT.</em></h2>
+    <section class="implant-story panel panel-warm" id="implant">
+      <div class="implant-copy">
+        <p class="eyebrow dark">IMPLANT SYSTEM</p>
+        <h2>ENGINEERED<br>TO DISAPPEAR.</h2>
+        <p class="lead">Najbolji implant nije onaj koji se vidi. Nego onaj koji nakon završetka više ne primjećujete.</p>
+        <div class="specs">
+          <div><span>01</span><strong>CERAMIC CROWN</strong><small>Optika prirodnog zuba</small></div>
+          <div><span>02</span><strong>ABUTMENT</strong><small>Precizna veza</small></div>
+          <div><span>03</span><strong>TITANIUM FIXTURE</strong><small>Biološka stabilnost</small></div>
+        </div>
       </div>
-      <div class="implant-stage">
-        <div class="implant-part implant-crown"><span>CROWN</span></div>
-        <div class="implant-part implant-abutment"><span>ABUTMENT</span></div>
-        <div class="implant-part implant-screw"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span>IMPLANT</span></div>
-        <div class="bone-plane"><span>BONE LEVEL</span></div>
+      <div class="implant-media-wrap">
+        <img class="implant-photo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="implant" data-parts="4" alt="Fotorealistični prikaz dijelova dentalnog implantata" loading="lazy" />
       </div>
-      <div class="implant-copy">Designed to integrate.<br>Built to be forgotten.</div>
     </section>
 
-    <section class="align-scene" id="align">
-      <div class="align-copy">
-        <span class="section-code light">06 / AUREA ALIGN</span>
-        <h2>MOVE<br>QUIETLY.</h2>
-        <p>Jasan plan. Diskretna terapija. Kontrola svakog pomaka.</p>
+    <section class="aligner-story panel panel-dark">
+      <div class="aligner-media cinematic-media">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="aligner" data-parts="5" alt="Fotorealistični prozirni aligner iznad premium kutijice" loading="lazy" />
       </div>
-      <div class="case-wrap">
-        <div class="case-lid"><span>AUREA</span><small>ALIGN SYSTEM</small></div>
-        <div class="case-base"><div class="case-tray"><i></i></div><b>01 — 14</b></div>
-      </div>
-      <div class="align-stamp">CUSTOM<br>MADE</div>
+      <div class="aligner-type"><span>AUREA</span><span class="outline">ALIGN</span></div>
+      <div class="aligner-copy"><p class="eyebrow">INVISIBLE MOVEMENT</p><h2>Almost nothing.<br>Changes everything.</h2><p>Prozirni aligneri vođeni digitalnim planom i kontroliranim pomacima.</p></div>
     </section>
 
-    <section class="smile" id="osmijeh">
-      <div class="smile-head">
-        <span class="section-code">07 / DIGITAL SMILE DESIGN</span>
-        <h2>FROM<br><em>CHAOS</em><br>TO CALM.</h2>
-      </div>
-      <div class="mouth-stage">
-        <div class="lip lip-top"></div>
-        <div class="lip lip-bottom"></div>
-        <div class="teeth-row" id="teeth-row"></div>
-        <div class="smile-scan"></div>
-      </div>
-      <div class="smile-caption"><span>BEFORE</span><i></i><span>AFTER</span></div>
+    <section class="smile-story panel" id="smile">
+      <div class="smile-photo"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-asset="smile" data-parts="3" alt="Prirodan bijeli osmijeh u premium studijskom osvjetljenju" loading="lazy" /><div class="scan-line"></div></div>
+      <div class="smile-overlay"><p class="eyebrow">FINAL FRAME</p><h2>NOT WHITE.<br><span>RIGHT.</span></h2><p>Boja je samo jedan detalj. Proporcija, tekstura i odnos prema licu stvaraju prirodan rezultat.</p></div>
     </section>
 
-    <section class="finale" id="kontakt">
-      <div class="finale-ring"></div>
-      <span class="section-code light">08 / YOUR MOVE</span>
-      <h2>READY TO<br><em>CHANGE</em><br>THE FRAME?</h2>
-      <a class="finale-cta" href="mailto:hello@aureadental.demo"><span>BOOK YOUR FIRST VISIT</span><b>↗</b></a>
-      <div class="finale-foot">
-        <span>AUREA DENTAL STUDIO · ZAGREB</span>
-        <span>+385 1 555 2026</span>
-        <span>DEMO SHOWCASE · 2026</span>
+    <section class="contact panel panel-ivory" id="contact">
+      <div class="contact-top"><p class="eyebrow dark">YOUR NEXT FRAME</p><h2>LET'S DESIGN<br>WHAT'S NEXT.</h2></div>
+      <div class="contact-grid">
+        <div class="contact-details"><p>Demo lokacija</p><strong>Vlaška 00<br>10000 Zagreb</strong><p>hello@aureadental.hr<br>+385 1 000 0000</p></div>
+        <form class="contact-form">
+          <label><span>Ime i prezime</span><input required name="name" autocomplete="name" /></label>
+          <label><span>Email / telefon</span><input required name="contact" /></label>
+          <label><span>Što vas zanima?</span><select name="service"><option>Prvi pregled</option><option>Implantologija</option><option>Smile design</option><option>Aligneri</option><option>Drugo</option></select></label>
+          <button type="submit">Pošalji upit <span>↗</span></button>
+        </form>
       </div>
+      <footer><span>AUREA DENTAL © 2026</span><span>SHOWCASE CONCEPT · LINEA+</span></footer>
     </section>
   </main>
 
+  <div class="mobile-nav" aria-hidden="true">
+    <a href="#treatments">Tretmani</a><a href="#anatomy">Preciznost</a><a href="#implant">Implanti</a><a href="#contact">Kontakt</a>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
