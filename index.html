@@ -1,139 +1,172 @@
 <!doctype html>
 <html lang="hr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#0a0806" />
-  <meta name="description" content="AUREA DENTAL — premium cinematic dental showcase." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0907">
+  <meta name="description" content="AUREA DENTAL — cinematic dental showcase.">
   <title>AUREA DENTAL — Beyond the smile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
+  <div class="noise"></div>
 
-  <header class="topbar" id="topbar">
-    <a class="brand" href="#hero"><span class="brand-mark">A</span><span><b>AUREA</b><small>DENTAL STUDIO</small></span></a>
-    <nav class="desktop-nav"><a href="#anatomy">ANATOMIJA</a><a href="#implant">IMPLANTI</a><a href="#align">ALIGN</a><a href="#contact">KONTAKT</a></nav>
-    <a class="nav-cta" href="#contact">REZERVIRAJ TERMIN <span>↗</span></a>
-    <button class="menu-toggle" aria-label="Otvori izbornik" aria-expanded="false"><span></span><span></span></button>
+  <header class="header" id="header">
+    <a class="brand" href="#hero">
+      <span class="brand-disc">A</span>
+      <span><b>AUREA</b><small>DENTAL STUDIO</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#treatments">TRETMANI</a>
+      <a href="#anatomy">PRECIZNOST</a>
+      <a href="#implant">IMPLANTI</a>
+      <a href="#contact">KONTAKT</a>
+    </nav>
+    <a class="book" href="#contact">REZERVIRAJ TERMIN <i>↗</i></a>
+    <button class="menu" aria-label="Otvori izbornik" aria-expanded="false"><span></span><span></span></button>
   </header>
-  <div class="mobile-nav" aria-hidden="true"><a href="#anatomy">ANATOMIJA</a><a href="#implant">IMPLANTI</a><a href="#align">ALIGN</a><a href="#contact">KONTAKT</a></div>
+
+  <div class="mobile-nav" aria-hidden="true">
+    <a href="#treatments">TRETMANI</a>
+    <a href="#anatomy">PRECIZNOST</a>
+    <a href="#implant">IMPLANTI</a>
+    <a href="#contact">KONTAKT</a>
+  </div>
 
   <main>
-    <section class="hero scroll-scene" id="hero">
-      <div class="scene-pin hero-pin">
-        <div class="hero-bg"></div>
-        <div class="hero-vignette"></div>
-        <div class="hero-ground"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="particle-field hero-particles" aria-hidden="true"></div>
+    <section class="hero scene" id="hero">
+      <div class="sticky">
+        <img class="scene-bg hero-bg" src="assets-v7/hero-bg.webp" alt="">
+        <div class="scene-darken"></div>
+        <div class="dust hero-dust" aria-hidden="true"></div>
 
         <div class="hero-copy">
-          <span class="eyebrow">STUDIO DENTALNE MEDICINE · ZAGREB</span>
-          <h1><span>BEYOND</span><span>THE <em>SMILE.</em></span></h1>
-          <p>Precizna dentalna medicina oblikovana kao premium iskustvo — od dijagnostike do posljednjeg detalja.</p>
-          <a href="#anatomy" class="text-link">ISTRAŽI PRECIZNOST <b>↗</b></a>
+          <span class="kicker">STUDIO DENTALNE MEDICINE · ZAGREB</span>
+          <h1>BEYOND<br>THE <em>SMILE.</em></h1>
+          <p>Precizna dentalna medicina oblikovana kao premium iskustvo — od prve snimke do posljednjeg detalja.</p>
+          <a class="round-link" href="#treatments">ISTRAŽI TRETMANE <b>↗</b></a>
         </div>
 
-        <div class="hero-stage">
-          <div class="hero-halo"></div>
-          <div class="orbit orbit-back"></div>
-          <div class="hero-tooth-wrap">
-            <img class="hero-tooth" src="assets/hero-tooth.webp" alt="Fotorealistični molar" />
-            <div class="hero-specular"></div>
+        <div class="hero-visual">
+          <div class="hero-light"></div>
+          <div class="helix helix-back"></div>
+          <div class="tooth-motion">
+            <div class="tooth-idle">
+              <img src="assets/hero-tooth.webp" alt="Fotorealistični molar">
+              <div class="tooth-shine"></div>
+            </div>
           </div>
-          <div class="orbit orbit-front"></div>
-          <div class="hero-metric metric-a"><b>01</b><span>PRECISION</span></div>
-          <div class="hero-metric metric-b"><b>02</b><span>AESTHETICS</span></div>
-          <div class="hero-metric metric-c"><b>03</b><span>CONFIDENCE</span></div>
+          <div class="helix helix-front"></div>
+          <div class="hero-pulse p1"></div>
+          <div class="hero-pulse p2"></div>
         </div>
 
-        <div class="hero-bottom"><span>SCROLL TO DIRECT THE SCENE</span><i></i><span>AUREA / 2026</span></div>
+        <div class="hero-index">
+          <b>01</b>
+          <span>PRECISION<br>AESTHETICS<br>CONFIDENCE</span>
+        </div>
+
+        <div class="scene-footer">
+          <span>SCROLL TO DIRECT THE SCENE</span><i><b></b></i><span>AUREA / 2026</span>
+        </div>
       </div>
     </section>
 
-    <section class="bridge bridge-light">
-      <div class="bridge-kicker">02 / PHILOSOPHY</div>
-      <div class="bridge-line"><span>NOT WHITE.</span><b>RIGHT.</b></div>
-      <div class="bridge-line"><span>NOT PERFECT.</span><b>YOURS.</b></div>
+    <section class="manifest" id="treatments">
+      <div class="manifest-top">
+        <span>02 / TREATMENTS</span>
+        <p>Bez copy/paste osmijeha. Svaki zahvat ima razlog, redoslijed i cilj.</p>
+      </div>
+      <div class="manifest-row"><b>IMPLANTS</b><span>STABILITY / FUNCTION / FORM</span></div>
+      <div class="manifest-row"><b>VENEERS</b><span>LIGHT / TEXTURE / PROPORTION</span></div>
+      <div class="manifest-row"><b>ALIGN</b><span>MOTION / CONTROL / TIME</span></div>
     </section>
 
-    <section class="anatomy scroll-scene" id="anatomy">
-      <div class="scene-pin anatomy-pin">
+    <section class="anatomy scene" id="anatomy">
+      <div class="sticky">
+        <img class="scene-bg anatomy-bg" src="assets-v7/anatomy-bg.webp" alt="">
+        <div class="scene-darken anatomy-darken"></div>
+
         <div class="scene-copy anatomy-copy">
-          <span class="eyebrow light">03 / ANATOMIJA</span>
-          <h2>CIJELI ZUB.<br><em>PA ONDA SVE ISPOD.</em></h2>
-          <p>Scena počinje kao jedan realistični zub. Scroll ga otvara i otkriva caklinu, dentin, pulpu i korijen.</p>
+          <span class="kicker">03 / ANATOMIJA</span>
+          <h2>VIŠE OD<br><em>POVRŠINE.</em></h2>
+          <p>Prvo cijeli zub. Zatim otvaranje. Tek onda slojevi koji se odvajaju bez gubitka zajedničke osi.</p>
         </div>
 
-        <div class="anatomy-stage">
-          <div class="anatomy-halo"></div>
-          <div class="anatomy-ring"></div>
-          <div class="whole-tooth whole-top"><img src="assets/hero-tooth.webp" alt="" /></div>
-          <div class="whole-tooth whole-bottom"><img src="assets/hero-tooth.webp" alt="" /></div>
+        <div class="canvas-stage anatomy-stage">
+          <div class="stage-glow"></div>
+          <img class="canvas-layer anatomy-full" src="assets/hero-tooth.webp" alt="">
+          <img class="canvas-layer a-root" src="assets/anatomy-root.webp" alt="Korijen zuba">
+          <img class="canvas-layer a-pulp" src="assets/anatomy-pulp.webp" alt="Pulpa">
+          <img class="canvas-layer a-dentin" src="assets/anatomy-dentin.webp" alt="Dentin">
+          <img class="canvas-layer a-crown" src="assets/anatomy-crown.webp" alt="Caklina">
+          <div class="scan-line anatomy-scan"></div>
 
-          <img class="anatomy-part a-crown" src="assets/anatomy-crown.webp" alt="Caklina" />
-          <img class="anatomy-part a-dentin" src="assets/anatomy-dentin.webp" alt="Dentin" />
-          <img class="anatomy-part a-pulp" src="assets/anatomy-pulp.webp" alt="Pulpa" />
-          <img class="anatomy-part a-root" src="assets/anatomy-root.webp" alt="Korijen" />
-
-          <div class="anatomy-scan"></div>
-          <div class="label l1"><b>01</b><span>CAKLINA<small>zaštita · sjaj</small></span></div>
-          <div class="label l2"><b>02</b><span>DENTIN<small>struktura · volumen</small></span></div>
-          <div class="label l3"><b>03</b><span>PULPA<small>živac · cirkulacija</small></span></div>
-          <div class="label l4"><b>04</b><span>KORIJEN<small>stabilnost · biologija</small></span></div>
+          <div class="callout c1"><b>01</b><span>CAKLINA<small>zaštita · sjaj</small></span></div>
+          <div class="callout c2"><b>02</b><span>DENTIN<small>struktura · volumen</small></span></div>
+          <div class="callout c3"><b>03</b><span>PULPA<small>živac · cirkulacija</small></span></div>
+          <div class="callout c4"><b>04</b><span>KORIJEN<small>stabilnost · biologija</small></span></div>
         </div>
 
-        <div class="scene-progress"><span>ANATOMY SEQUENCE</span><i><b></b></i><span class="progress-value">00%</span></div>
+        <div class="scene-footer">
+          <span>ANATOMY SEQUENCE</span><i><b class="anatomy-bar"></b></i><span class="anatomy-pct">00%</span>
+        </div>
       </div>
     </section>
 
-    <section class="bridge bridge-dark"><div class="bridge-kicker">04 / ENGINEERING</div><div class="bridge-center">EVERY MILLIMETER HAS A REASON.</div></section>
+    <section class="implant scene" id="implant">
+      <div class="sticky">
+        <img class="scene-bg implant-bg" src="assets-v7/implant-bg.webp" alt="">
+        <div class="scene-darken implant-darken"></div>
 
-    <section class="implant scroll-scene" id="implant">
-      <div class="scene-pin implant-pin">
         <div class="scene-copy implant-copy">
-          <span class="eyebrow light">05 / IMPLANTOLOGIJA</span>
+          <span class="kicker">04 / IMPLANTOLOGIJA</span>
           <h2>INŽENJERSTVO<br><em>KOJE NESTAJE.</em></h2>
-          <p>Vijak prvo ulazi u podlogu uz vidljiv “spin”, zatim sjeda abutment, a krunica se zaključava na vrhu.</p>
+          <p>Vijak se rotacijom dovodi u poziciju, abutment sjeda na os, a krunica zaključava sustav.</p>
         </div>
 
-        <div class="implant-stage">
-          <div class="implant-halo"></div>
-          <div class="implant-orbit"></div>
-          <div class="bone-block"><div class="gum-line"></div><div class="socket"></div><div class="bone-noise"></div></div>
-          <div class="implant-dust"></div>
+        <div class="canvas-stage implant-stage">
+          <div class="stage-glow implant-glow"></div>
+          <div class="spin-rings"><i></i><i></i><i></i></div>
+          <img class="canvas-layer i-screw" src="assets/implant-screw.webp" alt="Titanijski implantat">
+          <img class="canvas-layer i-abutment" src="assets/implant-abutment.webp" alt="Abutment">
+          <img class="canvas-layer i-crown" src="assets/implant-crown.webp" alt="Krunica">
+          <img class="implant-endstate" src="assets-v7/implant-endstate.webp" alt="Sastavljeni implantat u kosti">
+          <div class="implant-flash"></div>
 
-          <div class="implant-piece screw-wrap">
-            <img class="implant-screw" src="assets/implant-screw.webp" alt="Titanijski implantat" />
-            <div class="screw-specular"></div>
-            <div class="spin-ring ring-1"></div><div class="spin-ring ring-2"></div>
-          </div>
-          <img class="implant-piece implant-abutment" src="assets/implant-abutment.webp" alt="Abutment" />
-          <img class="implant-piece implant-crown" src="assets/implant-crown.webp" alt="Krunica" />
-
-          <div class="implant-state state-1"><b>01</b><span>IMPLANT<small>rotacija + insercija</small></span></div>
-          <div class="implant-state state-2"><b>02</b><span>ABUTMENT<small>precizno spajanje</small></span></div>
-          <div class="implant-state state-3"><b>03</b><span>KRUNICA<small>finalni lock</small></span></div>
+          <div class="callout ic1"><b>01</b><span>IMPLANT<small>rotacija + insercija</small></span></div>
+          <div class="callout ic2"><b>02</b><span>ABUTMENT<small>precizno spajanje</small></span></div>
+          <div class="callout ic3"><b>03</b><span>KRUNICA<small>finalni lock</small></span></div>
         </div>
 
-        <div class="scene-progress implant-progress"><span>ASSEMBLY SEQUENCE</span><i><b></b></i><span class="progress-value">00%</span></div>
+        <div class="scene-footer">
+          <span>ASSEMBLY SEQUENCE</span><i><b class="implant-bar"></b></i><span class="implant-pct">00%</span>
+        </div>
       </div>
     </section>
 
-    <section class="align" id="align">
-      <div class="align-copy"><span class="eyebrow">06 / AUREA ALIGN</span><h2>MOVE<br><em>QUIETLY.</em></h2><p>Prozirni aligner dobiva vlastitu laganu parallax scenu — bez WebGL-a i bez težine na mobitelu.</p></div>
-      <div class="align-stage"><div class="align-ring"></div><img class="aligner" src="assets/aligner.webp" alt="Prozirni aligner" /></div>
+    <section class="result">
+      <div class="result-media">
+        <img src="assets/smile.webp" alt="Fotorealistični osmijeh">
+        <div class="result-shade"></div>
+        <div class="result-scan"></div>
+      </div>
+      <div class="result-copy">
+        <span class="kicker">05 / THE RESULT</span>
+        <h2>DESIGNED<br>TO LOOK<br><em>UNDESIGNED.</em></h2>
+        <p>Najbolji rezultat nije onaj koji izgleda “napravljeno”. Nego onaj koji izgleda kao da je oduvijek bio vaš.</p>
+      </div>
     </section>
 
-    <section class="smile-scene">
-      <div class="smile-media"><img src="assets/smile.webp" alt="Fotorealistični osmijeh" /><div class="smile-shade"></div><div class="smile-scan"></div></div>
-      <div class="smile-copy"><span class="eyebrow light">07 / THE RESULT</span><h2>DESIGNED<br>TO LOOK<br><em>UNDESIGNED.</em></h2><p>Rezultat mora izgledati prirodno — ne “napravljeno”.</p></div>
+    <section class="contact" id="contact">
+      <span class="kicker dark">06 / YOUR MOVE</span>
+      <h2>READY TO<br>CHANGE THE<br><em>FRAME?</em></h2>
+      <a href="mailto:hello@aureadental.demo">REZERVIRAJ PRVI PREGLED <b>↗</b></a>
+      <div class="contact-foot"><span>AUREA DENTAL · ZAGREB</span><span>+385 1 555 2026</span><span>DEMO SHOWCASE</span></div>
     </section>
-
-    <section class="contact" id="contact"><span class="eyebrow">08 / YOUR MOVE</span><h2>READY TO<br>CHANGE THE<br><em>FRAME?</em></h2><a href="mailto:hello@aureadental.demo">REZERVIRAJ PRVI PREGLED <b>↗</b></a><div class="contact-foot"><span>AUREA DENTAL · ZAGREB</span><span>+385 1 555 2026</span><span>DEMO SHOWCASE</span></div></section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
