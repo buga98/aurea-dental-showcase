@@ -4,17 +4,20 @@
     const cache = new Map();
     await Promise.all(imgs.map(async img => {
       const name = img.dataset.asset;
-      const parts = Number(img.dataset.parts || 1);
       try {
         let src = cache.get(name);
         if (!src) {
-          const chunks = await Promise.all(Array.from({length:parts}, (_,i) => fetch(`assets-b64/${name}.${i+1}.txt`, {cache:'force-cache'}).then(r => { if(!r.ok) throw new Error(`${name}.${i+1}`); return r.text(); })));
-          src = `data:image/webp;base64,${chunks.join('')}`;
+          const r = await fetch(`assets/${name}.avif.b64.small`, { cache:'force-cache' });
+          if (!r.ok) throw new Error(`${name} (${r.status})`);
+          const payload = (await r.text()).trim();
+          src = `data:image/avif;base64,${payload}`;
           cache.set(name, src);
         }
         img.src = src;
         img.classList.add('asset-ready');
-      } catch (err) { console.error('Asset load failed', name, err); }
+      } catch (err) {
+        console.error('Asset load failed', name, err);
+      }
     }));
     window.dispatchEvent(new Event('aurea-assets-ready'));
   };
