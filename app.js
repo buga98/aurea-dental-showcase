@@ -7,23 +7,6 @@
   menuBtn?.addEventListener('click',()=>{const open=mobileNav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));mobileNav.setAttribute('aria-hidden',String(!open));});
   mobileNav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
 
-  const assetCache=new Map();
-  const loadAsset=async(name)=>{
-    if(assetCache.has(name))return assetCache.get(name);
-    const r=await fetch(`assets-b64/${name}.txt`,{cache:'force-cache'});if(!r.ok)throw new Error(`asset ${name}`);
-    const b64=(await r.text()).trim();
-    const src=`data:image/webp;base64,${b64}`;assetCache.set(name,src);return src;
-  };
-  const imgs=[...document.querySelectorAll('[data-asset]')];
-  const bgEls=[...document.querySelectorAll('[data-asset-bg]')];
-  const names=[...new Set([...imgs.map(i=>i.dataset.asset),...bgEls.map(i=>i.dataset.assetBg)])];
-  try{
-    await Promise.all(names.map(loadAsset));
-    imgs.forEach(img=>{img.src=assetCache.get(img.dataset.asset)});
-    bgEls.forEach(el=>{el.style.backgroundImage=`url(${assetCache.get(el.dataset.assetBg)})`});
-    const hero=assetCache.get('hero-tooth');document.documentElement.style.setProperty('--hero-mask',`url(${hero})`);
-  }catch(e){console.error('AUREA asset load failed',e)}
-
   const makeParticles=(selector,count)=>{const host=document.querySelector(selector);if(!host)return;for(let i=0;i<count;i++){const p=document.createElement('i');p.className='particle'+(Math.random()>.82?' big':'');p.style.left=`${Math.random()*100}%`;p.style.top=`${25+Math.random()*70}%`;p.style.setProperty('--dur',`${3.5+Math.random()*5}s`);p.style.setProperty('--dx',`${(Math.random()-.5)*70}px`);p.style.setProperty('--dy',`${-(20+Math.random()*85)}px`);p.style.animationDelay=`${-Math.random()*5}s`;host.appendChild(p)}};
   makeParticles('.hero-particles',42);
   const dustHost=document.querySelector('.implant-dust');if(dustHost){for(let i=0;i<28;i++){const d=document.createElement('i');d.className='dust';d.style.left=`${25+Math.random()*50}%`;d.style.top=`${55+Math.random()*38}%`;dustHost.appendChild(d)}}
