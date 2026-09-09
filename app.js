@@ -1,75 +1,80 @@
 (() => {
-  const services = [
-    ['01','Estetska dentalna medicina','Minimalno invazivni zahvati, kompozitne ljuskice i individualno oblikovanje osmijeha.','Prirodno · precizno · individualno'],
-    ['02','Implantologija','Digitalno planiranje implantata i jasan plan terapije od prvog pregleda do završnog osmijeha.','3D plan · kirurgija · protetika'],
-    ['03','Protetika','Keramičke krunice, mostovi i nadomjesci dizajnirani prema licu, zagrizu i karakteru osmijeha.','Keramika · CAD/CAM · funkcija'],
-    ['04','Ortodoncija','Diskretni pristupi ispravljanju položaja zuba uz digitalno praćenje i predvidljiv tijek terapije.','Aligneri · kontrola · plan'],
-    ['05','Endodoncija','Mikroskopska preciznost kod liječenja korijenskih kanala i očuvanja prirodnog zuba.','Mikroskop · očuvanje zuba'],
-    ['06','Preventiva','Kontrole, profesionalno čišćenje i programi održavanja prilagođeni vašem riziku i navikama.','Kontrola · higijena · edukacija']
-  ];
-  const tooth = '<svg><use href="#tooth-mark"></use></svg>';
-  const arrow = '<svg><use href="#arrow"></use></svg>';
-  const grid = document.querySelector('#services-grid');
-  if (grid) grid.innerHTML = services.map(s => `<article class="service-card reveal"><div class="service-no">${s[0]}</div><div class="service-icon">${tooth}</div><h3>${s[1]}</h3><p>${s[2]}</p><div class="service-meta">${s[3]}</div><div class="service-arrow">${arrow}</div></article>`).join('');
-
-  const makeArch = (selector, lower = false) => {
-    const el = document.querySelector(selector); if (!el) return;
-    el.innerHTML = Array.from({length:14}, (_,i) => {
-      const n = i - 6.5, rot = n * (lower ? -4.7 : 4.7), y = Math.abs(n) * (lower ? -4.4 : 4.4), scale = 1 - Math.abs(n)*.025;
-      return `<div class="arch-tooth" style="--rot:${rot}deg;--y:${y}px;--scale:${scale};--i:${i}">${tooth}</div>`;
-    }).join('');
-  };
-  makeArch('#upper-arch'); makeArch('#lower-arch', true);
-
-  const makeSmileTeeth = (selector, newer) => {
-    const g = document.querySelector(selector); if (!g) return;
-    g.innerHTML = Array.from({length:10}, (_,i) => {
-      const x=302+i*30, y=(newer?174:181)+Math.abs(4.5-i)*(newer?1.5:2), h=(newer?71:65)-Math.abs(4.5-i)*(newer?1.5:2), r=(i-4.5)*(newer?1.1:1.8);
-      return `<rect x="${x}" y="${y}" width="33" height="${h}" rx="10" transform="rotate(${r} ${318+i*30} 210)"/>`;
-    }).join('');
-  };
-  makeSmileTeeth('#old-teeth', false); makeSmileTeeth('#new-teeth', true);
-
-  const range = document.querySelector('#smile-range');
-  const updateSmile = () => {
-    const v = Number(range?.value || 58), x = 900*v/100;
-    document.querySelector('#simulator-value').textContent = `${v}%`;
-    document.querySelector('#reveal-rect').setAttribute('width', x);
-    document.querySelector('#reveal-line').setAttribute('x1', x); document.querySelector('#reveal-line').setAttribute('x2', x);
-    document.querySelector('#reveal-knob').setAttribute('cx', x);
-  };
-  range?.addEventListener('input', updateSmile); updateSmile();
-
-  const menuBtn = document.querySelector('.menu-btn'), mobileMenu = document.querySelector('.mobile-menu');
-  const closeMenu = () => { menuBtn?.classList.remove('open'); mobileMenu?.classList.remove('open'); menuBtn?.setAttribute('aria-expanded','false'); mobileMenu?.setAttribute('aria-hidden','true'); document.body.classList.remove('menu-open'); };
-  menuBtn?.addEventListener('click', () => { const open = !menuBtn.classList.contains('open'); menuBtn.classList.toggle('open', open); mobileMenu?.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded',String(open)); mobileMenu?.setAttribute('aria-hidden',String(!open)); document.body.classList.toggle('menu-open', open); });
-  document.querySelectorAll('[data-scroll]').forEach(b => b.addEventListener('click', () => { closeMenu(); document.querySelector(b.dataset.scroll)?.scrollIntoView({behavior:'smooth'}); }));
-  document.querySelector('.contact-form')?.addEventListener('submit', e => { e.preventDefault(); const btn=e.currentTarget.querySelector('button'); const old=btn.innerHTML; btn.textContent='Upit je zabilježen · demo'; setTimeout(()=>btn.innerHTML=old,2200); });
-
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const header = document.querySelector('.site-header');
-  const hero = document.querySelector('.hero'), heroTooth = document.querySelector('.hero-tooth'), heroVisual = document.querySelector('.hero-visual-wrap');
-  const serviceSection = document.querySelector('.services-section'), orbitTeeth = [...document.querySelectorAll('.orbit-tooth')];
-  const jawSection = document.querySelector('.jaw-section'), jawStage = document.querySelector('.jaw-stage'), jawScan = document.querySelector('.jaw-scan');
-  const marquee = document.querySelector('.marquee'), marqueeTrack = document.querySelector('.marquee-track');
-  let scrollY = 0, ticking = false, mouseX=0, mouseY=0;
-  const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
-  const progress = (el) => { if(!el) return 0; const r=el.getBoundingClientRect(), vh=innerHeight; return clamp((vh-r.top)/(vh+r.height),0,1); };
-  const renderScroll = () => {
-    ticking=false; header?.classList.toggle('is-scrolled', scrollY>24); if(reduced) return;
-    const hp = clamp(scrollY / Math.max(hero?.offsetHeight || 1,1),0,1);
-    if(heroTooth) heroTooth.style.transform = `translate3d(${hp*22}px,${hp*45}px,0) rotate(${hp*310}deg)`;
-    const sp=progress(serviceSection); orbitTeeth.forEach((el,i)=>el.style.transform=`translate3d(${(i? -1:1)*sp*65}px,${(i?1:-1)*sp*130}px,0) rotate(${(i?-1:1)*sp*200+(i?-27:18)}deg)`);
-    const jp=progress(jawSection); if(jawStage) jawStage.style.transform=`rotateY(${(jp-.5)*18}deg) rotateX(${(jp-.5)*-7}deg)`; if(jawScan) jawScan.style.transform=`translateY(${jp*320}px)`;
-    const mp=progress(marquee); if(marqueeTrack) marqueeTrack.style.transform=`translate3d(${-mp*18}%,0,0)`;
-  };
-  addEventListener('scroll',()=>{scrollY=scrollY||window.scrollY; scrollY=window.scrollY; if(!ticking){requestAnimationFrame(renderScroll);ticking=true;}},{passive:true}); scrollY=window.scrollY; renderScroll();
+  const topbar = document.querySelector('#topbar');
+  const menuBtn = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
 
-  if(!reduced && matchMedia('(pointer:fine)').matches){
-    addEventListener('pointermove', e => { mouseX=(e.clientX/innerWidth-.5)*2; mouseY=(e.clientY/innerHeight-.5)*2; document.querySelector('.cursor-glow')?.style.setProperty('transform',`translate(${e.clientX-210}px,${e.clientY-210}px)`); if(heroVisual) heroVisual.style.transform=`perspective(1100px) rotateY(${mouseX*5}deg) rotateX(${mouseY*-4}deg) translate3d(${mouseX*5}px,${mouseY*5}px,0)`; },{passive:true});
+  addEventListener('scroll', () => topbar?.classList.toggle('scrolled', scrollY > 24), {passive:true});
+  menuBtn?.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    mobileNav.setAttribute('aria-hidden', String(!open));
+  });
+  mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  if (reduced || !window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (window.Lenis) {
+    const lenis = new Lenis({ duration: 1.05, smoothWheel: true, syncTouch: false });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
   }
 
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('in'); observer.unobserve(entry.target); } }),{threshold:.12,rootMargin:'0px 0px -4%'});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-  requestAnimationFrame(()=>document.body.classList.add('loaded'));
+  gsap.set('.hero-tooth', {transformPerspective:1100, transformOrigin:'50% 55%'});
+  const hero = gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1}});
+  hero.to('.hero-tooth',{rotationZ:18,rotationY:-13,rotationX:6,scale:1.14,y:80,ease:'none'},0)
+      .to('.ring-a',{rotationZ:120,scale:1.16,ease:'none'},0)
+      .to('.ring-b',{rotationZ:-90,scale:.9,ease:'none'},0)
+      .to('.orbit-one',{rotation:16,y:-40,ease:'none'},0)
+      .to('.orbit-two',{rotation:-24,y:36,ease:'none'},0)
+      .to('.hero-copy',{y:-80,opacity:.28,ease:'none'},0)
+      .to('.hero-side',{y:60,opacity:0,ease:'none'},0);
+
+  if (matchMedia('(pointer:fine)').matches) {
+    const tooth = document.querySelector('.hero-tooth');
+    document.querySelector('.hero-stage')?.addEventListener('pointermove', e => {
+      const r=e.currentTarget.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      gsap.to(tooth,{x:x*18,yPercent:y*3,rotationY:x*10,rotationX:y*-7,duration:.8,overwrite:'auto'});
+    });
+  }
+
+  gsap.utils.toArray('.statement-row').forEach((row) => {
+    gsap.from(row.children,{x:(j)=>j?80:-80,opacity:0,duration:1,stagger:.04,scrollTrigger:{trigger:row,start:'top 82%'}});
+  });
+
+  const anatomy = gsap.timeline({scrollTrigger:{trigger:'.precision',start:'top top',end:'+=165%',pin:true,scrub:1,anticipatePin:1}});
+  anatomy.set('.anatomy-label',{opacity:0},0)
+    .fromTo('.anatomy-crown',{y:130,scale:.94},{y:0,scale:1,ease:'none'},0)
+    .fromTo('.anatomy-dentin',{y:30,scale:.96},{y:0,scale:1,ease:'none'},0)
+    .fromTo('.anatomy-pulp',{y:-85,scale:.93},{y:0,scale:1,ease:'none'},0)
+    .fromTo('.anatomy-root',{y:-150,scale:.94},{y:0,scale:1,ease:'none'},0)
+    .to('.anatomy-crown',{y:-75,rotation:-2,ease:'none'},.46)
+    .to('.anatomy-dentin',{y:-12,rotation:1.5,ease:'none'},.46)
+    .to('.anatomy-pulp',{y:42,scale:1.04,ease:'none'},.46)
+    .to('.anatomy-root',{y:112,rotation:-1,ease:'none'},.46)
+    .to('.anatomy-label',{opacity:1,stagger:.06,duration:.18},.55)
+    .to('.anatomy-stage',{rotationY:-3,rotationX:1,transformPerspective:1200,ease:'none'},0);
+
+  const implant = gsap.timeline({scrollTrigger:{trigger:'.implant',start:'top top',end:'+=165%',pin:true,scrub:1,anticipatePin:1}});
+  implant.set('.implant-label',{opacity:0},0)
+    .fromTo('.implant-crown',{y:-220,rotation:10,scale:.94},{y:155,rotation:0,scale:1,ease:'none'},0)
+    .fromTo('.implant-abutment',{y:-55,rotation:-9,scale:.94},{y:58,rotation:0,scale:1,ease:'none'},0)
+    .fromTo('.implant-screw',{y:220,rotation:12,scale:.94},{y:-28,rotation:0,scale:1,ease:'none'},0)
+    .to('.implant-group',{rotationY:8,rotationZ:1.5,transformPerspective:1000,ease:'none'},.55)
+    .to('.implant-label',{opacity:1,stagger:.08,duration:.2},.52);
+
+  const align = gsap.timeline({scrollTrigger:{trigger:'.align-section',start:'top 80%',end:'bottom top',scrub:1}});
+  align.fromTo('.aligner',{x:160,y:80,rotationZ:14,rotationY:-18,rotationX:12,scale:.82},{x:-35,y:-35,rotationZ:-6,rotationY:16,rotationX:-8,scale:1.06,ease:'none'})
+       .to('.align-ring',{rotationZ:120,scale:1.15,ease:'none'},0);
+
+  gsap.to('.smile-media img',{scale:1.16,xPercent:-3,scrollTrigger:{trigger:'.smile-scene',start:'top bottom',end:'bottom top',scrub:1}});
+  gsap.fromTo('.smile-scan',{top:'-10%'},{top:'105%',ease:'none',scrollTrigger:{trigger:'.smile-scene',start:'top 70%',end:'bottom 30%',scrub:1}});
+  gsap.from('.smile-copy h2',{y:90,opacity:0,duration:1,scrollTrigger:{trigger:'.smile-copy',start:'top 78%'}});
+
+  gsap.from('.contact h2',{y:120,opacity:0,duration:1.15,scrollTrigger:{trigger:'.contact',start:'top 70%'}});
+  addEventListener('load',()=>ScrollTrigger.refresh());
+  addEventListener('resize',()=>ScrollTrigger.refresh());
 })();
