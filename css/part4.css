@@ -1,0 +1,2 @@
+@media(max-width:380px){.hero h1{font-size:55px}.hero-actions{grid-template-columns:1fr}.jaw-stage{transform:scale(.72);margin-inline:-80px}.team-portrait{height:360px}.contact-inner h2{font-size:43px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.cursor-glow{display:none}.hero-enter,.hero-visual-enter,.reveal{opacity:1!important;transform:none!important}}
