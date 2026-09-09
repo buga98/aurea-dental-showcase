@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/hero.webp" />
   <link rel="stylesheet" href="styles.css" />
   <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"}}</script>
 </head>
@@ -17,91 +16,22 @@
   <div class="loader" aria-hidden="true"><div><b>AUREA</b><span>PREPARING THE EXPERIENCE</span></div></div>
   <div class="grain" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"><i></i></div>
-
   <header class="site-nav">
     <a class="brand" href="#top"><span class="brand-mark">A</span><span><b>AUREA</b><small>DENTAL STUDIO</small></span></a>
-    <nav class="nav-links" aria-label="Glavna navigacija">
-      <a href="#treatments">TRETMANI</a><a href="#precision">PRECIZNOST</a><a href="#implants">IMPLANTI</a><a href="#contact">KONTAKT</a>
-    </nav>
+    <nav class="nav-links" aria-label="Glavna navigacija"><a href="#treatments">TRETMANI</a><a href="#precision">PRECIZNOST</a><a href="#implants">IMPLANTI</a><a href="#contact">KONTAKT</a></nav>
     <a class="book-btn" href="#contact">REZERVIRAJ TERMIN <span>↗</span></a>
     <button class="menu-toggle" type="button" aria-label="Otvori izbornik" aria-expanded="false"><i></i><i></i></button>
   </header>
   <div class="mobile-nav" aria-hidden="true"><a href="#treatments">Tretmani</a><a href="#precision">Preciznost</a><a href="#implants">Implanti</a><a href="#contact">Kontakt</a></div>
-
   <main id="top">
-    <section class="hero" id="hero">
-      <div class="hero-sticky">
-        <div class="hero-backdrop" aria-hidden="true"></div>
-        <canvas id="hero3d" class="webgl-canvas" aria-label="Interaktivni 3D model zuba"></canvas>
-        <div class="hero-topline"><span>STUDIO DENTALNE MEDICINE · ZAGREB</span><span>PRECISION / FUNCTION / FORM</span></div>
-        <div class="hero-title">
-          <div class="hero-kicker">BEYOND THE SMILE.</div>
-          <h1><span>WE DON'T FIX</span><em>SMILES.</em></h1>
-          <p>WE DESIGN THEM.</p>
-        </div>
-        <div class="hero-bottom"><p>Digitalna preciznost, prirodna estetika i terapija koja ima smisla i nakon deset godina.</p><div class="scroll-cue"><span>SCROLL</span><i></i><span>ROTATE</span></div></div>
-      </div>
-    </section>
-
-    <section class="manifesto">
-      <div class="manifesto-row"><span>NOT WHITE.</span><em>RIGHT.</em></div>
-      <div class="manifesto-row reverse"><span>NOT PERFECT.</span><em>YOURS.</em></div>
-      <p>Rezultat ne bi trebao izgledati “napravljeno”. Trebao bi izgledati neizbježno.</p>
-    </section>
-
-    <section class="treatments" id="treatments">
-      <div class="section-intro"><span>01 / THE LINEUP</span><h2>CHOOSE YOUR<br><em>TRANSFORMATION.</em></h2></div>
-      <div class="treatments-viewport">
-        <div class="treatments-track">
-          <article class="treatment-panel"><img src="assets/implant.webp" alt="Fotorealistični dentalni implant" /><div class="panel-shade"></div><span class="panel-no">01</span><div class="panel-copy"><small>REBUILD / PRESERVE / LAST</small><h3>IMPLANTS</h3><p>Digitalno planiranje, kirurgija i protetika kao jedan sustav.</p></div></article>
-          <article class="treatment-panel"><img src="assets/hero.webp" alt="Fotorealistični zub" /><div class="panel-shade"></div><span class="panel-no">02</span><div class="panel-copy"><small>FORM / LIGHT / PROPORTION</small><h3>VENEERS</h3><p>Promjena forme bez copy/paste osmijeha.</p></div></article>
-          <article class="treatment-panel"><img src="assets/aligner.webp" alt="Prozirni dentalni aligner" /><div class="panel-shade"></div><span class="panel-no">03</span><div class="panel-copy"><small>MOVE / CONTROL / REFINE</small><h3>ALIGN</h3><p>Diskretna ortodoncija s kontrolom svakog pomaka.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="anatomy-scene" id="precision">
-      <div class="scene-sticky">
-        <canvas id="anatomy3d" class="webgl-canvas" aria-label="3D presjek zuba koji se rastavlja"></canvas>
-        <div class="scene-copy anatomy-copy"><span>02 / BENEATH THE SURFACE</span><h2>PRECISION<br>STARTS<br><em>INSIDE.</em></h2><p>Scrollom rastavljamo zub na njegove funkcionalne slojeve. Ovo nije slika — svaki element je zaseban 3D objekt.</p></div>
-        <div class="anatomy-labels" aria-hidden="true"><div data-label="enamel"><b>01</b><span>ENAMEL<small>zaštita / translucencija</small></span></div><div data-label="dentin"><b>02</b><span>DENTIN<small>struktura / volumen</small></span></div><div data-label="pulp"><b>03</b><span>PULP<small>živac / cirkulacija</small></span></div><div data-label="root"><b>04</b><span>ROOT<small>stabilnost / biologija</small></span></div></div>
-        <div class="scene-counter">SCROLL TO EXPLODE <span>↕</span></div>
-      </div>
-    </section>
-
-    <section class="implant-scene" id="implants">
-      <div class="scene-sticky">
-        <canvas id="implant3d" class="webgl-canvas" aria-label="3D dentalni implant koji se sastavlja"></canvas>
-        <div class="scene-copy implant-copy"><span>03 / ENGINEERED TO DISAPPEAR</span><h2>THE<br><em>IMPLANT.</em></h2><p>Krunica, abutment i titanijski implant kreću odvojeno. Scroll ih sastavlja i implant se rotacijom uvodi u poziciju.</p></div>
-        <div class="implant-steps" aria-hidden="true"><span>01 CROWN</span><span>02 ABUTMENT</span><span>03 TITANIUM</span></div>
-        <div class="scene-counter">SCROLL TO ASSEMBLE <span>↓</span></div>
-      </div>
-    </section>
-
-    <section class="aligner-scene">
-      <div class="aligner-image"><img src="assets/aligner.webp" alt="AUREA transparentni aligner" /></div>
-      <div class="aligner-copy"><span>04 / AUREA ALIGN</span><h2>MOVE<br><em>QUIETLY.</em></h2><p>Jasan plan. Diskretna terapija. Kontrola svakog pomaka.</p></div>
-      <div class="aligner-orbit" aria-hidden="true">AUREA ALIGN · AUREA ALIGN · AUREA ALIGN ·</div>
-    </section>
-
-    <section class="smile-scene">
-      <div class="smile-sticky">
-        <img src="assets/smile.webp" alt="Prirodni osmijeh u premium dentalnom studiju" />
-        <div class="smile-vignette"></div><div class="scan-line"></div>
-        <div class="smile-copy"><span>05 / DIGITAL SMILE DESIGN</span><h2>NOT A<br>NEW FACE.<br><em>YOUR FACE.</em></h2><p>Planiramo odnos zuba, usana i lica — ne samo boju.</p></div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="contact-copy"><span>06 / YOUR MOVE</span><h2>READY TO<br><em>CHANGE</em><br>THE FRAME?</h2></div>
-      <a class="contact-cta" href="mailto:hello@aureadental.demo"><span>REZERVIRAJ PRVI PREGLED</span><b>↗</b></a>
-      <div class="contact-foot"><span>AUREA DENTAL STUDIO · ZAGREB</span><span>+385 1 555 2026</span><span>DEMO SHOWCASE · 2026</span></div>
-    </section>
+    <section class="hero" id="hero"><div class="hero-sticky"><div class="hero-backdrop" aria-hidden="true"></div><canvas id="hero3d" class="webgl-canvas" aria-label="Interaktivni 3D model zuba"></canvas><div class="hero-topline"><span>STUDIO DENTALNE MEDICINE · ZAGREB</span><span>PRECISION / FUNCTION / FORM</span></div><div class="hero-title"><div class="hero-kicker">BEYOND THE SMILE.</div><h1><span>WE DON'T FIX</span><em>SMILES.</em></h1><p>WE DESIGN THEM.</p></div><div class="hero-bottom"><p>Digitalna preciznost, prirodna estetika i terapija koja ima smisla i nakon deset godina.</p><div class="scroll-cue"><span>SCROLL</span><i></i><span>ROTATE</span></div></div></div></section>
+    <section class="manifesto"><div class="manifesto-row"><span>NOT WHITE.</span><em>RIGHT.</em></div><div class="manifesto-row reverse"><span>NOT PERFECT.</span><em>YOURS.</em></div><p>Rezultat ne bi trebao izgledati “napravljeno”. Trebao bi izgledati neizbježno.</p></section>
+    <section class="treatments" id="treatments"><div class="section-intro"><span>01 / THE LINEUP</span><h2>CHOOSE YOUR<br><em>TRANSFORMATION.</em></h2></div><div class="treatments-viewport"><div class="treatments-track"><article class="treatment-panel panel-one"><span class="panel-no">01</span><div class="panel-ghost">IMPLANT</div><div class="panel-copy"><small>REBUILD / PRESERVE / LAST</small><h3>IMPLANTS</h3><p>Digitalno planiranje, kirurgija i protetika kao jedan sustav.</p></div></article><article class="treatment-panel panel-two"><span class="panel-no">02</span><div class="panel-ghost">FORM</div><div class="panel-copy"><small>FORM / LIGHT / PROPORTION</small><h3>VENEERS</h3><p>Promjena forme bez copy/paste osmijeha.</p></div></article><article class="treatment-panel panel-three"><span class="panel-no">03</span><div class="panel-ghost">ALIGN</div><div class="panel-copy"><small>MOVE / CONTROL / REFINE</small><h3>ALIGN</h3><p>Diskretna ortodoncija s kontrolom svakog pomaka.</p></div></article></div></div></section>
+    <section class="anatomy-scene" id="precision"><div class="scene-sticky"><canvas id="anatomy3d" class="webgl-canvas" aria-label="3D presjek zuba koji se rastavlja"></canvas><div class="scene-copy anatomy-copy"><span>02 / BENEATH THE SURFACE</span><h2>PRECISION<br>STARTS<br><em>INSIDE.</em></h2><p>Scrollom rastavljamo zub na njegove funkcionalne slojeve. Ovo nije slika — svaki element je zaseban 3D objekt.</p></div><div class="anatomy-labels" aria-hidden="true"><div data-label="enamel"><b>01</b><span>ENAMEL<small>zaštita / translucencija</small></span></div><div data-label="dentin"><b>02</b><span>DENTIN<small>struktura / volumen</small></span></div><div data-label="pulp"><b>03</b><span>PULP<small>živac / cirkulacija</small></span></div><div data-label="root"><b>04</b><span>ROOT<small>stabilnost / biologija</small></span></div></div><div class="scene-counter">SCROLL TO EXPLODE <span>↕</span></div></div></section>
+    <section class="implant-scene" id="implants"><div class="scene-sticky"><canvas id="implant3d" class="webgl-canvas" aria-label="3D dentalni implant koji se sastavlja"></canvas><div class="scene-copy implant-copy"><span>03 / ENGINEERED TO DISAPPEAR</span><h2>THE<br><em>IMPLANT.</em></h2><p>Krunica, abutment i titanijski implant kreću odvojeno. Scroll ih sastavlja i implant se rotacijom uvodi u poziciju.</p></div><div class="implant-steps" aria-hidden="true"><span>01 CROWN</span><span>02 ABUTMENT</span><span>03 TITANIUM</span></div><div class="scene-counter">SCROLL TO ASSEMBLE <span>↓</span></div></div></section>
+    <section class="aligner-scene" id="aligners"><canvas id="aligner3d" class="webgl-canvas" aria-label="3D prozirni aligner"></canvas><div class="aligner-copy"><span>04 / AUREA ALIGN</span><h2>MOVE<br><em>QUIETLY.</em></h2><p>Jasan plan. Diskretna terapija. Kontrola svakog pomaka.</p></div><div class="aligner-orbit" aria-hidden="true">AUREA ALIGN · AUREA ALIGN · AUREA ALIGN ·</div></section>
+    <section class="smile-scene" id="smile"><div class="smile-sticky"><canvas id="smile3d" class="webgl-canvas" aria-label="3D zubni luk koji se poravnava"></canvas><div class="smile-vignette"></div><div class="scan-line"></div><div class="smile-copy"><span>05 / DIGITAL SMILE DESIGN</span><h2>FROM<br><em>CHAOS</em><br>TO CALM.</h2><p>Scrollom se svaki zub pomiče u planiranu poziciju. Stvarna 3D geometrija, ne fotografija.</p></div></div></section>
+    <section class="contact" id="contact"><div class="contact-copy"><span>06 / YOUR MOVE</span><h2>READY TO<br><em>CHANGE</em><br>THE FRAME?</h2></div><a class="contact-cta" href="mailto:hello@aureadental.demo"><span>REZERVIRAJ PRVI PREGLED</span><b>↗</b></a><div class="contact-foot"><span>AUREA DENTAL STUDIO · ZAGREB</span><span>+385 1 555 2026</span><span>DEMO SHOWCASE · 2026</span></div></section>
   </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
-  <script type="module" src="app.js"></script>
-</body>
-</html>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script><script type="module" src="app.js"></script>
+</body></html>
