@@ -29,7 +29,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
   if(window.Lenis){
-    const lenis=new Lenis({duration:.95,smoothWheel:true,syncTouch:false});
+    const lenis=new Lenis({duration:.72,smoothWheel:true,syncTouch:false});
     lenis.on('scroll',ScrollTrigger.update);
     gsap.ticker.add(t=>lenis.raf(t*1000));
     gsap.ticker.lagSmoothing(0);
@@ -39,7 +39,7 @@
   const setBar=(selector,p)=>gsap.set(selector,{width:`${p*100}%`});
 
   const hero=gsap.timeline({
-    scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom bottom',scrub:.75,onUpdate:s=>{
+    scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom 15%',scrub:.45,invalidateOnRefresh:true,onUpdate:s=>{
       setBar('.hero .scene-footer i b',s.progress);
     }}
   });
@@ -60,60 +60,77 @@
   }
 
   gsap.set(['.a-crown','.a-dentin','.a-pulp','.a-root'],{opacity:0});
+  gsap.set(['.callout.c1','.callout.c2','.callout.c3','.callout.c4'],{opacity:0,x:18});
+
   const anatomy=gsap.timeline({
-    scrollTrigger:{trigger:'#anatomy',start:'top top',end:'bottom bottom',scrub:.65,onUpdate:s=>{
-      setPct('.anatomy-pct',s.progress);setBar('.anatomy-bar',s.progress);
-    }}
+    scrollTrigger:{
+      trigger:'#anatomy',
+      start:'top 72%',
+      end:'bottom 12%',
+      scrub:.32,
+      invalidateOnRefresh:true,
+      onUpdate:s=>{setPct('.anatomy-pct',s.progress);setBar('.anatomy-bar',s.progress);}
+    }
   });
-  anatomy.to('.anatomy-full',{scale:1.06,yPercent:-1,ease:'none'},0)
-    .to('.anatomy-scan',{opacity:1,top:'72%',ease:'none'},.04)
-    .to('.anatomy-full',{opacity:0,scale:.99,duration:.18},.18)
-    .set(['.a-crown','.a-dentin','.a-pulp','.a-root'],{opacity:1},.18)
-    .fromTo('.a-crown',{y:135},{y:0,ease:'none'},.18)
-    .fromTo('.a-dentin',{y:38},{y:0,ease:'none'},.18)
-    .fromTo('.a-pulp',{y:-52},{y:0,ease:'none'},.18)
-    .fromTo('.a-root',{y:-122},{y:0,ease:'none'},.18)
-    .to('.a-crown',{y:-42,rotation:-.6,ease:'none'},.54)
-    .to('.a-dentin',{y:-8,rotation:.35,ease:'none'},.54)
-    .to('.a-pulp',{y:22,scale:1.015,ease:'none'},.54)
-    .to('.a-root',{y:58,rotation:-.25,ease:'none'},.54)
-    .to('.callout.c1',{opacity:1,x:0,duration:.08},.55)
-    .to('.callout.c2',{opacity:1,x:0,duration:.08},.62)
-    .to('.callout.c3',{opacity:1,x:0,duration:.08},.69)
-    .to('.callout.c4',{opacity:1,x:0,duration:.08},.76)
+  anatomy.to('.anatomy-full',{scale:1.045,yPercent:-1,ease:'none'},0)
+    .to('.anatomy-scan',{opacity:1,top:'67%',ease:'none',duration:.13},.01)
+    .to('.anatomy-full',{opacity:0,scale:.995,duration:.10},.10)
+    .set(['.a-crown','.a-dentin','.a-pulp','.a-root'],{opacity:1},.11)
+    .fromTo('.a-crown',{y:78},{y:0,ease:'none',duration:.22},.11)
+    .fromTo('.a-dentin',{y:22},{y:0,ease:'none',duration:.22},.11)
+    .fromTo('.a-pulp',{y:-34},{y:0,ease:'none',duration:.22},.11)
+    .fromTo('.a-root',{y:-72},{y:0,ease:'none',duration:.22},.11)
+    .to('.a-crown',{y:-48,rotation:-.7,ease:'none',duration:.34},.34)
+    .to('.a-dentin',{y:-10,rotation:.4,ease:'none',duration:.34},.34)
+    .to('.a-pulp',{y:25,scale:1.018,ease:'none',duration:.34},.34)
+    .to('.a-root',{y:62,rotation:-.28,ease:'none',duration:.34},.34)
+    .to('.callout.c1',{opacity:1,x:0,duration:.07},.40)
+    .to('.callout.c2',{opacity:1,x:0,duration:.07},.47)
+    .to('.callout.c3',{opacity:1,x:0,duration:.07},.54)
+    .to('.callout.c4',{opacity:1,x:0,duration:.07},.61)
     .to('.anatomy-bg',{scale:1.11,xPercent:-1,ease:'none'},0);
 
   gsap.set(['.ic1','.ic2','.ic3'],{opacity:0});
   const implant=gsap.timeline({
-    scrollTrigger:{trigger:'#implant',start:'top top',end:'bottom bottom',scrub:.55,onUpdate:s=>{
-      setPct('.implant-pct',s.progress);setBar('.implant-bar',s.progress);
-    }}
+    scrollTrigger:{
+      trigger:'#implant',
+      start:'top 72%',
+      end:'bottom 12%',
+      scrub:.28,
+      invalidateOnRefresh:true,
+      onUpdate:s=>{setPct('.implant-pct',s.progress);setBar('.implant-bar',s.progress);}
+    }
   });
   implant.fromTo('.i-screw',
-      {y:150,scale:.95,rotationY:-12,transformOrigin:'50% 60%',transformPerspective:1100},
-      {y:0,scale:1,duration:.34,ease:'none'},0)
-    .to('.i-screw',{rotationY:14,scaleX:.97,x:4,duration:.055,ease:'none'},0)
-    .to('.i-screw',{rotationY:-14,scaleX:1.02,x:-4,duration:.055,ease:'none'},.055)
-    .to('.i-screw',{rotationY:14,scaleX:.97,x:4,duration:.055,ease:'none'},.11)
-    .to('.i-screw',{rotationY:-14,scaleX:1.02,x:-4,duration:.055,ease:'none'},.165)
-    .to('.i-screw',{rotationY:12,scaleX:.98,x:3,duration:.055,ease:'none'},.22)
-    .to('.i-screw',{rotationY:0,scaleX:1,x:0,duration:.06,ease:'none'},.275)
-    .to('.spin-rings',{opacity:1,rotation:420,ease:'none',duration:.34},0)
-    .to('.ic1',{opacity:1,duration:.05},.12)
-    .fromTo('.i-abutment',{y:-118,rotationY:-20,rotationZ:5,scale:.96,transformPerspective:1000},{y:44,rotationY:0,rotationZ:0,scale:1,ease:'none'},.30)
-    .to('.ic2',{opacity:1,duration:.05},.42)
-    .fromTo('.i-crown',{y:-160,rotationY:14,rotationZ:-5,scale:.95,transformPerspective:1000},{y:92,rotationY:0,rotationZ:0,scale:1,ease:'none'},.52)
-    .to('.ic3',{opacity:1,duration:.05},.64)
-    .to('.implant-flash',{opacity:1,scaleX:1.25,duration:.04},.70)
-    .to('.implant-flash',{opacity:0,duration:.08},.75)
-    .to(['.i-screw','.i-abutment','.i-crown','.spin-rings'],{opacity:0,duration:.12},.78)
-    .to('.implant-endstate',{opacity:1,scale:1.03,duration:.18,ease:'none'},.78)
+      {y:128,scale:.95,rotationY:-12,transformOrigin:'50% 60%',transformPerspective:1100},
+      {y:0,scale:1,duration:.26,ease:'none'},0)
+    .to('.i-screw',{rotationY:17,scaleX:.965,x:5,duration:.042,ease:'none'},0)
+    .to('.i-screw',{rotationY:-17,scaleX:1.025,x:-5,duration:.042,ease:'none'},.042)
+    .to('.i-screw',{rotationY:17,scaleX:.965,x:5,duration:.042,ease:'none'},.084)
+    .to('.i-screw',{rotationY:-17,scaleX:1.025,x:-5,duration:.042,ease:'none'},.126)
+    .to('.i-screw',{rotationY:14,scaleX:.975,x:4,duration:.042,ease:'none'},.168)
+    .to('.i-screw',{rotationY:0,scaleX:1,x:0,duration:.05,ease:'none'},.21)
+    .to('.spin-rings',{opacity:1,rotation:520,ease:'none',duration:.27},0)
+    .to('.ic1',{opacity:1,duration:.045},.09)
+    .fromTo('.i-abutment',{y:-104,rotationY:-22,rotationZ:6,scale:.96,transformPerspective:1000},{y:44,rotationY:0,rotationZ:0,scale:1,duration:.25,ease:'none'},.24)
+    .to('.ic2',{opacity:1,duration:.045},.34)
+    .fromTo('.i-crown',{y:-138,rotationY:17,rotationZ:-6,scale:.95,transformPerspective:1000},{y:92,rotationY:0,rotationZ:0,scale:1,duration:.28,ease:'none'},.43)
+    .to('.ic3',{opacity:1,duration:.045},.54)
+    .to('.implant-flash',{opacity:1,scaleX:1.25,duration:.04},.64)
+    .to('.implant-flash',{opacity:0,duration:.07},.69)
+    .to(['.i-screw','.i-abutment','.i-crown','.spin-rings'],{opacity:0,duration:.10},.74)
+    .to('.implant-endstate',{opacity:1,scale:1.03,duration:.18,ease:'none'},.74)
     .to('.implant-bg',{scale:1.11,yPercent:1,ease:'none'},0);
 
-  gsap.to('.result-media img',{scale:1.16,xPercent:-2.5,scrollTrigger:{trigger:'.result',start:'top bottom',end:'bottom top',scrub:1}});
-  gsap.fromTo('.result-scan',{top:'-10%'},{top:'105%',ease:'none',scrollTrigger:{trigger:'.result',start:'top 75%',end:'bottom 25%',scrub:1}});
-  gsap.from('.result-copy',{y:80,opacity:0,duration:1,scrollTrigger:{trigger:'.result-copy',start:'top 80%'}});
+  gsap.to('.result-media img',{scale:1.16,xPercent:-2.5,scrollTrigger:{trigger:'.result',start:'top 92%',end:'bottom 18%',scrub:.45,invalidateOnRefresh:true}});
+  gsap.fromTo('.result-scan',{top:'-10%'},{top:'105%',ease:'none',scrollTrigger:{trigger:'.result',start:'top 90%',end:'bottom 25%',scrub:.4,invalidateOnRefresh:true}});
+  gsap.from('.result-copy',{y:54,opacity:0,duration:.75,scrollTrigger:{trigger:'.result-copy',start:'top 88%'}});
 
-  addEventListener('load',()=>ScrollTrigger.refresh());
-  addEventListener('resize',()=>ScrollTrigger.refresh());
+  const refresh=()=>requestAnimationFrame(()=>ScrollTrigger.refresh(true));
+  addEventListener('load',refresh,{once:true});
+  if(document.fonts?.ready) document.fonts.ready.then(refresh);
+  document.querySelectorAll('img').forEach(img=>{
+    if(!img.complete) img.addEventListener('load',refresh,{once:true});
+  });
+  addEventListener('resize',refresh);
 })();
